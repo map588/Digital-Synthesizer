@@ -6,6 +6,8 @@
 
 library ieee;
 use ieee.std_logic_1164.all;
+-- package with defines
+use work.defines.all;
 
 package triangle_wavetable_package is   
     constant c_DATA_WIDTH  : integer := 24;  -- width of waveform data outputs
@@ -58,8 +60,8 @@ architecture arch of triangle_wavetable is
         return v_wavetable;
     end function;
 
-    -- wavetable binary file directory
-    constant directory  : string := "F:\HDL\Synthesizer\repo\Oscillator_2.0\src\";
+    -- wavetable binary file directory (moved to defines.vhd)
+    -- constant directory  : string := "F:\HDL\Synthesizer\repo\Oscillator_2.0\src\";
     
     -- array of triangle wavetables (one per octave) each stored as a bram
     constant wavetables : t_wavetable_array := (   read_wavetable(directory & "triangle0.txt"),
